@@ -1,0 +1,170 @@
+<!doctype html>
+<html class="no-js" lang="">
+<head>
+  <meta charset="utf-8">
+  <meta name="description" content="">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>protoPaSparet</title>
+
+  <link rel="apple-touch-icon" href="apple-touch-icon.png">
+  <!-- Place favicon.ico in the root directory -->
+
+  <!-- build:css styles/vendor.css -->
+  <!-- bower:css -->
+  <!-- endbower -->
+  <!-- endbuild -->
+
+  <!-- build:css styles/main.css -->
+  <link rel="stylesheet" href="styles/main.css">
+  <!-- endbuild -->
+
+  <!-- Other own deps -->
+  <link rel="stylesheet" href="styles/other/drum.css">
+  <!-- endbuild -->
+
+  <!-- build:js scripts/vendor/modernizr.js -->
+  <script src="/bower_components/modernizr/modernizr.js"></script>
+  <!-- endbuild -->
+
+
+  <style>
+
+    body {
+      background-color: #fefefe;
+      font-family: Arial, Verdana, sans-serif;
+      text-align: center;
+    }
+
+    div.drum-wrapper {
+      width: 200px;
+    }
+
+    .container {
+      border-top: 1px solid #ececec;
+      border-bottom: 1px solid #ececec;
+    }
+
+    .outside div.drum-wrapper {
+      display: inline-block;
+    }
+
+    .nodbroms {
+      width: 100%;
+      height: 100%;
+    }
+
+    button {
+      background-color: #e7e7e7;
+      color: black;
+      border: none;
+      padding: 15px 32px;
+      text-align: center;
+      text-decoration: none;
+      display: inline-block;
+      font-size: 16px;
+      border-radius: 5px;
+    }
+
+    .inputer {
+      border: 1px solid black;
+    }
+
+    /*SELECT 2*/
+    .js-example-basic-single {
+      width: 200px;
+    }
+
+    .chooser.input {
+      padding: 6px;
+    }
+  </style>
+
+</head>
+<body>
+<!--[if lt IE 10]>
+<p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade
+  your browser</a> to improve your experience.</p>
+<![endif]-->
+
+
+<img class="nodbroms" src="images/nodbroms.png"/>
+<main>
+  <div class="topText">
+    <h1>Vart är vi på väg?</h1>
+    <h2>8 poäng</h2>
+  </div>
+  <div class="roller">
+    <input class="inputer"/>
+    <button class="chooser input">Välj</button>
+    <div class="outside">
+      <select id="country" name="countries">
+        <option value="TOR">Torshavn</option>
+        <option value="LAP">La Plata</option>
+        <option value="KOS">Kosovska Mitrovica</option>
+        <option value="HU">Hungary</option>
+        <option value="SAN">San José</option>
+        <option value="NYB">Nyborg</option>
+        <option value="KAI">Kairo</option>
+        <option value="GRI">Grimsby</option>
+        <option value="TORN">Torneå</option>
+        <option selected value="TET">Tétouan</option>
+      </select>
+      <br>
+      <br>
+      <button class="chooser scroll" type="button">Välj markerad stad</button>
+    </div>
+  </div>
+
+</main>
+<div class="s2-example">
+  <select class="js-example-basic-single">
+    <!--UGLY FIX-->
+    <option></option>
+    <option value="TOR">Torshavn</option>
+    <option value="LAP">La Plata</option>
+    <option value="KOS">Kosovska Mitrovica</option>
+    <option value="HU">Hungary</option>
+    <option value="SAN">San José</option>
+    <option value="NYB">Nyborg</option>
+    <option value="KAI">Kairo</option>
+    <option value="GRI">Grimsby</option>
+    <option value="TORN">Torneå</option>
+    <option value="TET">Tétouan</option>
+  </select>
+  <button class="chooser input">Välj</button>
+
+</div>
+<label class="awnswer"></label>
+
+<!-- build:js scripts/vendor.js -->
+<!-- bower:js -->
+<script src="/bower_components/jquery/dist/jquery.js"></script>
+<script src="/bower_components/select2/dist/js/select2.js"></script>
+<script src="/bower_components/hammerjs/hammer.js"></script>
+<!-- endbower -->
+<!-- endbuild -->
+
+<!-- build:js scripts/plugins.js -->
+<script src="/bower_components/bootstrap-sass/assets/javascripts/bootstrap/affix.js"></script>
+<script src="/bower_components/bootstrap-sass/assets/javascripts/bootstrap/alert.js"></script>
+<script src="/bower_components/bootstrap-sass/assets/javascripts/bootstrap/dropdown.js"></script>
+<script src="/bower_components/bootstrap-sass/assets/javascripts/bootstrap/tooltip.js"></script>
+<script src="/bower_components/bootstrap-sass/assets/javascripts/bootstrap/modal.js"></script>
+<script src="/bower_components/bootstrap-sass/assets/javascripts/bootstrap/transition.js"></script>
+<script src="/bower_components/bootstrap-sass/assets/javascripts/bootstrap/button.js"></script>
+<script src="/bower_components/bootstrap-sass/assets/javascripts/bootstrap/popover.js"></script>
+<script src="/bower_components/bootstrap-sass/assets/javascripts/bootstrap/carousel.js"></script>
+<script src="/bower_components/bootstrap-sass/assets/javascripts/bootstrap/scrollspy.js"></script>
+<script src="/bower_components/bootstrap-sass/assets/javascripts/bootstrap/collapse.js"></script>
+<script src="/bower_components/bootstrap-sass/assets/javascripts/bootstrap/tab.js"></script>
+<!-- endbuild -->
+
+<!-- build:js scripts/main.js -->
+<script src="scripts/main.js"></script>
+<!-- endbuild -->
+
+<!-- Other own deps -->
+<script src="scripts/other/drum.js"></script>
+<!-- endbuild -->
+</body>
+</html>
