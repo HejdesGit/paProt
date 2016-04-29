@@ -20,25 +20,24 @@ $(document).ready(function () {
   $('.chooser').click(function () {
     if ($(this).hasClass("input")) {
       if ($(".js-example-basic-single").val() == rattSvar) {
-        $(".awnswer").text("RÄTT SVAR!")
+        $(".awnswer").text("RÄTT SVAR!");
       } else {
-        $(".awnswer").text("FEL SVAR!")
+        $(".awnswer").text("FEL SVAR!");
       }
-    } else { //@TODO HEJDE: $(this).hasClass("roller")
+    } else {
+      //@TODO HEJDE: $(this).hasClass("roller")
       if ($("#country").val() == rattSvar) {
-        $(".awnswer").text("RÄTT SVAR!")
+        $(".awnswer").text("RÄTT SVAR!");
       } else {
-        $(".awnswer").text("FEL SVAR!")
+        $(".awnswer").text("FEL SVAR!");
       }
     }
   });
-
 
   var names = [];
   $("#country option").each(function () {
     var value = $(this).text();
     names.push(value);
-
   });
 
   // Ska ta första bokstaven
@@ -53,9 +52,7 @@ $(document).ready(function () {
     }
   });
 
-
   $('main').hide();
-
 
   //Dev
   // $('.nodbroms').hide();
@@ -64,7 +61,6 @@ $(document).ready(function () {
   //
   // $('.chooser.scroll').hide();
   // $('roller').hide();
-
 });
 
 // $(document).ready(function () {
@@ -155,3 +151,4 @@ $(document).ready(function () {
 // $(document).ready(function () {
 //   Hammer.plugins.fakeMultitouch();
 // });
+//# sourceMappingURL=main.js.map
