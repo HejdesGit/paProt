@@ -6,10 +6,11 @@ $(document).ready(function () {
   Hammer.plugins.fakeMultitouch();
   $("#country").drum({
     panelCount: 10,
-    dail_w: 200,
-    dail_h: 200,
-    dail_stroke_color: 'red',
-    dail_stroke_width: 5
+    dail_w: 75,
+    dail_h: 20,
+    dail_stroke_color: '#810000',
+    dail_stroke_width: 3
+
   });
 
   $('.nodbroms').click(function () {
@@ -53,6 +54,8 @@ $(document).ready(function () {
   });
 
   $('main').hide();
+  $('.s2-example').hide();
+  $('.rollInputer').hide();
 
   //Dev
   // $('.nodbroms').hide();

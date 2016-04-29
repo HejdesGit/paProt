@@ -35,6 +35,27 @@
       text-align: center;
     }
 
+    #drum_country .container {
+      /*top: 160px;*/
+    }
+    #drum_country, #drum_country .inner {
+      /*height: 200px;*/
+    }
+    #drum_country .container, #drum_country figure {
+      height: 30px;
+    }
+    #drum_country figure {
+      text-align: left;
+      font-size: 2em;
+      line-height: 40px;
+    }
+
+    #drum_country .dial {
+      height: 190px;
+    }
+    #drum_country .dial div {
+      width: 75px;
+    }
     div.drum-wrapper {
       width: 200px;
     }
@@ -94,20 +115,22 @@
     <h2>8 poäng</h2>
   </div>
   <div class="roller">
-    <input class="inputer"/>
-    <button class="chooser input">Välj</button>
+    <div class="rollInputer">
+      <input class="inputer"/>
+      <button class="chooser input">Välj</button>
+    </div>
     <div class="outside">
       <select id="country" name="countries">
-        <option value="TOR">Torshavn</option>
-        <option value="LAP">La Plata</option>
-        <option value="KOS">Kosovska Mitrovica</option>
-        <option value="HU">Hungary</option>
-        <option value="SAN">San José</option>
-        <option value="NYB">Nyborg</option>
-        <option value="KAI">Kairo</option>
         <option value="GRI">Grimsby</option>
+        <option value="HU">Hungary</option>
+        <option value="KAI">Kairo</option>
+        <option value="KOS">Kosovska Mitrovica</option>
+        <option value="LAP">La Plata</option>
+        <option value="NYB">Nyborg</option>
+        <option value="SAN">San José</option>
+        <option value="TET">Tétouan</option>
         <option value="TORN">Torneå</option>
-        <option selected value="TET">Tétouan</option>
+        <option value="TOR">Torshavn</option>
       </select>
       <br>
       <br>
