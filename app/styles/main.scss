@@ -5,6 +5,7 @@ $icon-font-path: '../fonts/';
 @import "bower_components/select2/src/scss/core.scss";
 // endbower
 
+
 .browserupgrade {
   margin: 0.2em 0;
   background: #ccc;
@@ -91,4 +92,35 @@ body {
   .jumbotron {
     border-bottom: 0;
   }
+}
+
+@import "wool";
+@import "scroll";
+@import "select2";
+@import "supplementaries";
+@import "other/drum.min.css";
+
+// General styles
+
+body {
+  background-color: #fefefe;
+  font-family: Arial, Verdana, sans-serif;
+  text-align: center;
+}
+
+.nodbroms {
+  width: 100%;
+  height: 100%;
+}
+
+button {
+  background-color: #e7e7e7;
+  color: black;
+  border: none;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  border-radius: 5px;
 }

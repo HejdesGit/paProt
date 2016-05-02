@@ -18,87 +18,9 @@
   <link rel="stylesheet" href="styles/main.css">
   <!-- endbuild -->
 
-  <!-- Other own deps -->
-  <link rel="stylesheet" href="styles/other/drum.css">
-  <!-- endbuild -->
-
   <!-- build:js scripts/vendor/modernizr.js -->
   <script src="/bower_components/modernizr/modernizr.js"></script>
   <!-- endbuild -->
-
-
-  <style>
-
-    body {
-      background-color: #fefefe;
-      font-family: Arial, Verdana, sans-serif;
-      text-align: center;
-    }
-
-    #drum_country .container {
-      /*top: 160px;*/
-    }
-    #drum_country, #drum_country .inner {
-      /*height: 200px;*/
-    }
-    #drum_country .container, #drum_country figure {
-      height: 30px;
-    }
-    #drum_country figure {
-      text-align: left;
-      font-size: 2em;
-      line-height: 40px;
-    }
-
-    #drum_country .dial {
-      height: 190px;
-    }
-    #drum_country .dial div {
-      width: 75px;
-    }
-    div.drum-wrapper {
-      width: 200px;
-    }
-
-    .container {
-      border-top: 1px solid #ececec;
-      border-bottom: 1px solid #ececec;
-    }
-
-    .outside div.drum-wrapper {
-      display: inline-block;
-    }
-
-    .nodbroms {
-      width: 100%;
-      height: 100%;
-    }
-
-    button {
-      background-color: #e7e7e7;
-      color: black;
-      border: none;
-      padding: 15px 32px;
-      text-align: center;
-      text-decoration: none;
-      display: inline-block;
-      font-size: 16px;
-      border-radius: 5px;
-    }
-
-    .inputer {
-      border: 1px solid black;
-    }
-
-    /*SELECT 2*/
-    .js-example-basic-single {
-      width: 200px;
-    }
-
-    .chooser.input {
-      padding: 6px;
-    }
-  </style>
 
 </head>
 <body>
@@ -109,18 +31,144 @@
 
 
 <img class="nodbroms" src="images/nodbroms.png"/>
-<main>
-  <div class="topText">
-    <h1>Vart är vi på väg?</h1>
-    <h2>8 poäng</h2>
+
+<main class="default">
+  <a href="#scroll1">Scroll</a><br>
+  <a href="#scroll2">Scroll write</a><br>
+  <a href="#autoDrop">Dropdown write</a><br>
+  <a href="#sup1">Supplementaries</a><br>
+  <a href="#wool">Ull</a><br>
+
+</main>
+
+<main class="wool">
+  <h1>Följdfrågor på Peru</h1>
+  <h2>Vilket ull hör till vilket djur?</h2>
+  <h3>Dra rätt ord till rätt bild</h3>
+
+  <div class="droppable 1" class="ui-widget-header">
+    <p>Släpp här</p>
   </div>
-  <div class="roller">
-    <div class="rollInputer">
-      <input class="inputer"/>
-      <button class="chooser input">Välj</button>
+  <img class="wool1" src="images/wool1.png"/><br>
+  <div class="droppable 2" class="ui-widget-header">
+    <p>Släpp här</p></div>
+  <img class="wool2" src="images/wool2.png"/><br>
+  <div class="droppable 3" class="ui-widget-header">
+    <p>Släpp här</p></div>
+  <img class="wool3" src="images/wool3.png"/><br>
+
+  <div class="draggable 1" class="ui-widget-content">
+    <p>Mohair</p>
+  </div>
+  <div class="draggable 2" class="ui-widget-content">
+    <p>Vikunjaull</p>
+  </div>
+  <div class="draggable 3" class="ui-widget-content">
+    <p>Merinoull</p>
+  </div>
+
+</main>
+
+<main class="supplementary">
+  <div class="sup1">
+    <h1>Följdfrågor på moped</h1>
+    <h2>Vad hette de olika mopederna?</h2>
+    <img class="sup" src="images/moped1.png"/><br>
+    <label>Moped 1</label><br>
+    <div class="roller">
+      <div class="outside">
+        <select id="SupScroll1">
+          <option value="PUDA">Push Dakota</option>
+          <option value="PUAL">Push Alabama</option>
+          <option value="PICI">Piaggio Ciao</option>
+          <option value="PIVE">Piaggio Vespa</option>
+          <option value="KAWA">Kawasaki</option>
+          <option value="HO21">Honda 241 BLM</option>
+          <option value="HOCH">Honda Chappy</option>
+        </select>
+      </div>
     </div>
+    <button class="button next 2">Nästa</button>
+  </div>
+  <div class="sup2">
+    <h1>Följdfrågor på moped</h1>
+    <h2>Vad hette de olika mopederna?</h2>
+    <img class="sup" src="images/moped2.png"/><br>
+    <label>Moped 2</label><br>
+    <div class="roller">
+      <div class="outside">
+        <select id="SupScroll2">
+          <option value="PUDA">Push Dakota</option>
+          <option value="PUAL">Push Alabama</option>
+          <option value="PICI">Piaggio Ciao</option>
+          <option value="PIVE">Piaggio Vespa</option>
+          <option value="KAWA">Kawasaki</option>
+          <option value="HO21">Honda 241 BLM</option>
+          <option value="HOCH">Honda Chappy</option>
+        </select>
+      </div>
+    </div>
+    <button class="button prev 1">Föregående</button>
+    <button class="button next 3">Nästa</button>
+  </div>
+  <div class="sup3">
+    <h1>Följdfrågor på moped</h1>
+    <h2>Vad hette de olika mopederna?</h2>
+    <img class="sup" src="images/moped3.png"/><br>
+    <label>Moped 3</label><br>
+    <div class="roller">
+      <div class="outside">
+        <select id="SupScroll3">
+          <option value="PUDA">Push Dakota</option>
+          <option value="PUAL">Push Alabama</option>
+          <option value="PICI">Piaggio Ciao</option>
+          <option value="PIVE">Piaggio Vespa</option>
+          <option value="KAWA">Kawasaki</option>
+          <option value="HO21">Honda 241 BLM</option>
+          <option value="HOCH">Honda Chappy</option>
+        </select>
+      </div>
+    </div>
+    <button class="button prev 2">Föregående</button>
+    <button class="button next 4">Nästa</button>
+  </div>
+  <div class="sup4">
+    <h1>Följdfrågor på moped</h1>
+    <h2>Vad hette de olika mopederna?</h2>
+    <img class="sup" src="images/moped4.png"/><br>
+    <label>Moped 4</label><br>
+    <div class="roller">
+      <div class="outside">
+        <select id="SupScroll4">
+          <option value="PUDA">Push Dakota</option>
+          <option value="PUAL">Push Alabama</option>
+          <option value="PICI">Piaggio Ciao</option>
+          <option value="PIVE">Piaggio Vespa</option>
+          <option value="KAWA">Kawasaki</option>
+          <option value="HO21">Honda 241 BLM</option>
+          <option value="HOCH">Honda Chappy</option>
+        </select>
+      </div>
+    </div>
+    <button class="button prev 3">Föregående</button>
+    <button class="button answer">Svara</button>
+  </div>
+  <div class="supAnswer">
+    <label class="labelSub1">Moped 1</label><br>
+    <label class="labelSub2">Moped 2</label><br>
+    <label class="labelSub3">Moped 3</label><br>
+    <label class="labelSub4">Moped 4</label><br>
+  </div>
+</main>
+<div class="topText">
+  <h1>Vart är vi på väg?</h1>
+  <h2>8 poäng</h2>
+</div>
+
+<main class="scroll1">
+  <div class="roller">
     <div class="outside">
-      <select id="country" name="countries">
+      <select id="scroll1">
         <option value="GRI">Grimsby</option>
         <option value="HU">Hungary</option>
         <option value="KAI">Kairo</option>
@@ -137,11 +185,34 @@
       <button class="chooser scroll" type="button">Välj markerad stad</button>
     </div>
   </div>
-
 </main>
-<div class="s2-example">
+
+<main class="scroll2">
+  <div class="rollInputer">
+    <input class="inputer"/>
+    <button class="chooser input">Välj</button>
+  </div>
+  <div class="roller">
+    <div class="outside">
+      <select id="scroll2">
+        <option value="GRI">Grimsby</option>
+        <option value="HU">Hungary</option>
+        <option value="KAI">Kairo</option>
+        <option value="KOS">Kosovska Mitrovica</option>
+        <option value="LAP">La Plata</option>
+        <option value="NYB">Nyborg</option>
+        <option value="SAN">San José</option>
+        <option value="TET">Tétouan</option>
+        <option value="TORN">Torneå</option>
+        <option value="TOR">Torshavn</option>
+      </select>
+    </div>
+  </div>
+</main>
+
+
+<main class="select2">
   <select class="js-example-basic-single">
-    <!--UGLY FIX-->
     <option></option>
     <option value="TOR">Torshavn</option>
     <option value="LAP">La Plata</option>
@@ -154,9 +225,8 @@
     <option value="TORN">Torneå</option>
     <option value="TET">Tétouan</option>
   </select>
-  <button class="chooser input">Välj</button>
-
-</div>
+  <button class="chooser select2">Välj</button>
+</main>
 <label class="awnswer"></label>
 
 <!-- build:js scripts/vendor.js -->
@@ -164,6 +234,8 @@
 <script src="/bower_components/jquery/dist/jquery.js"></script>
 <script src="/bower_components/select2/dist/js/select2.js"></script>
 <script src="/bower_components/hammerjs/hammer.js"></script>
+<script src="/bower_components/jquery-ui/jquery-ui.js"></script>
+<script src="/bower_components/jquery-ui-touch-punch/jquery.ui.touch-punch.min.js"></script>
 <!-- endbower -->
 <!-- endbuild -->
 
@@ -187,7 +259,7 @@
 <!-- endbuild -->
 
 <!-- Other own deps -->
-<script src="scripts/other/drum.js"></script>
+<script src="/bower_components/drumjs/lib/drum.min.js"></script>
 <script src="scripts/other/hammer.fakemultitouch.js"></script>
 
 <!-- endbuild -->

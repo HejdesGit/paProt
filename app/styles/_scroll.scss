@@ -1,0 +1,46 @@
+#drum_country .container {
+  /*top: 160px;*/
+}
+
+#drum_country, #drum_country .inner {
+  /*height: 200px;*/
+}
+
+#drum_country .container, #drum_country figure {
+  height: 30px;
+}
+
+#drum_country figure {
+  text-align: left;
+  font-size: 2em;
+  line-height: 40px;
+}
+
+#drum_country .dial {
+  height: 190px;
+}
+
+#drum_country .dial div {
+  width: 75px;
+}
+
+div.drum-wrapper {
+  width: 200px;
+}
+
+.container {
+  border-top: 1px solid #ececec;
+  border-bottom: 1px solid #ececec;
+}
+
+.outside div.drum-wrapper {
+  display: inline-block;
+}
+
+.inputer {
+  border: 1px solid black;
+}
+
+.chooser.input {
+  padding: 6px;
+}

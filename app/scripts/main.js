@@ -1,160 +1,366 @@
-"use strict";
+'use strict';
 
-var rattSvar = "TOR";
+// @TODO HEJDE: FIX SUP DRUM DEFAULT VALUE
+
+var correctAnswerScroll = 'TOR';
+var sup1Answer = 'PUDA';
+var sup2Answer = 'PUAL';
+var sup3Answer = 'PICI';
+var sup4Answer = 'PIVE';
+var useDebug = true;
 
 $(document).ready(function () {
-  Hammer.plugins.fakeMultitouch();
-  $("#country").drum({
-    panelCount: 10,
-    dail_w: 75,
-    dail_h: 20,
-    dail_stroke_color: '#810000',
-    dail_stroke_width: 3
-
-  });
-
-  $('.nodbroms').click(function () {
-    $(".nodbroms").hide();
-    $("main").show();
-  });
-
-  $('.chooser').click(function () {
-    if ($(this).hasClass("input")) {
-      if ($(".js-example-basic-single").val() == rattSvar) {
-        $(".awnswer").text("RÄTT SVAR!")
-      } else {
-        $(".awnswer").text("FEL SVAR!")
-      }
-    } else { //@TODO HEJDE: $(this).hasClass("roller")
-      if ($("#country").val() == rattSvar) {
-        $(".awnswer").text("RÄTT SVAR!")
-      } else {
-        $(".awnswer").text("FEL SVAR!")
-      }
+  $(window).bind('hashchange', function () {
+    var hash = window.location.hash;
+    switch (hash) {
+      case '#scroll1':
+        Scroll1.Start();
+        break;
+      case '#scroll2':
+        Scroll2.Start();
+        break;
+      case '#autoDrop':
+        AutoDrop.Start();
+        break;
+      case '#sup1':
+        Supplementary.Start();
+        break;
+      case '#wool':
+        Wool.Start();
+        break;
+      default:
+        Default.Start();
     }
   });
 
-
-  var names = [];
-  $("#country option").each(function () {
-    var value = $(this).text();
-    names.push(value);
-
-  });
-
-  // Ska ta första bokstaven
-  $('.inputer').keyup(function () {
-    var typedWord;
-    typedWord = $(this).val();
-
-    for (var i = 0; i < names.length; i++) {
-      if (names[i].substring(0, typedWord.length).toLowerCase().indexOf(typedWord) >= 0) {
-        $("#country").drum('setIndex', i);
-      }
-    }
-  });
-
-
-  $('main').hide();
-  $('.s2-example').hide();
-  $('.rollInputer').hide();
+  var hash = window.location.hash;
+  switch (hash) {
+    case '#scroll1':
+      Scroll1.Start();
+      break;
+    case '#scroll2':
+      Scroll2.Start();
+      break;
+    case '#autoDrop':
+      AutoDrop.Start();
+      break;
+    case '#sup1':
+      Supplementary.Start();
+      break;
+    case '#wool':
+      Wool.Start();
+      break;
+    default:
+      Default.Start();
+  }
 
 
-  //Dev
-  // $('.nodbroms').hide();
-  // $('main').show();
-  // $('.roller').hide();
-  //
-  // $('.chooser.scroll').hide();
-  // $('roller').hide();
-
+  if (useDebug) {
+    // $('.wool').show();
+  }
 });
 
-// $(document).ready(function () {
-//
-//   (function(Hammer) {
-//   /**
-//    * enable multitouch on the desktop by pressing the shiftkey
-//    * the other touch goes in the opposite direction so the center keeps at its place
-//    * it's recommended to enable Hammer.debug.showTouches for this one
-//    */
-//   Hammer.plugins.fakeMultitouch = function() {
-//     // keeps the start position to keep it centered
-//     var start_pos = false;
-//
-//     // test for msMaxTouchPoints to enable this for IE10 with only one pointer (a mouse in all/most cases)
-//     Hammer.HAS_POINTEREVENTS = navigator.msPointerEnabled &&
-//       navigator.msMaxTouchPoints && navigator.msMaxTouchPoints >= 1;
-//
-//     /**
-//      * overwrites Hammer.event.getTouchList.
-//      * @param   {Event}     ev
-//      * @param   TOUCHTYPE   type
-//      * @return  {Array}     Touches
-//      */
-//     Hammer.event.getTouchList = function(ev, eventType) {
-//       // get the fake pointerEvent touchlist
-//       if(Hammer.HAS_POINTEREVENTS) {
-//         return Hammer.PointerEvent.getTouchList();
-//       }
-//       // get the touchlist
-//       else if(ev.touches) {
-//         return ev.touches;
-//       }
-//
-//       // reset on start of a new touch
-//       if(eventType == Hammer.EVENT_START) {
-//         start_pos = false;
-//       }
-//
-//       // when the shift key is pressed, multitouch is possible on desktop
-//       // why shift? because ctrl and alt are taken by osx and linux
-//       if(ev.shiftKey) {
-//         // on touchstart we store the position of the mouse for multitouch
-//         if(!start_pos) {
-//           start_pos = {
-//             pageX: ev.pageX,
-//             pageY: ev.pageY
-//           };
-//         }
-//
-//         var distance_x = start_pos.pageX - ev.pageX;
-//         var distance_y = start_pos.pageY - ev.pageY;
-//
-//         // fake second touch in the opposite direction
-//         return [
-//           {
-//             identifier: 1,
-//             pageX     : start_pos.pageX - distance_x - 50,
-//             pageY     : start_pos.pageY - distance_y - -50,
-//             target    : ev.target
-//           },
-//           {
-//             identifier: 2,
-//             pageX     : start_pos.pageX + distance_x - -50,
-//             pageY     : start_pos.pageY + distance_y - 50,
-//             target    : ev.target
-//           }
-//         ];
-//       }
-//       // normal single touch
-//       else {
-//         start_pos = false;
-//         return [
-//           {
-//             identifier: 1,
-//             pageX     : ev.pageX,
-//             pageY     : ev.pageY,
-//             target    : ev.target
-//           }
-//         ];
-//       }
-//     };
-//   };
-//
-// })(window.Hammer);
-// });
-//
-// $(document).ready(function () {
-//   Hammer.plugins.fakeMultitouch();
-// });
+
+var Supplementary = (function () {
+  function Start() {
+    Hammer.plugins.fakeMultitouch();
+    Load();
+    Hide.all();
+    $('.supplementary').show();
+    $('.sup2').hide();
+    $('.sup3').hide();
+    $('.sup4').hide();
+    _clickEvent();
+  }
+
+  function _clickEvent() {
+    $('.button.prev').click(function () {
+      var nextScreen = _showNext($(this));
+      $(".sup" + (parseInt(nextScreen, 10) + 1)).hide();
+    });
+    $('.button.next').click(function () {
+      var nextScreen = _showNext($(this));
+      $(".sup" + (parseInt(nextScreen, 10) - 1)).hide();
+    });
+    function _showNext(element) {
+      var classes = element.attr("class").split(' ');
+      var lastClass = classes[classes.length - 1];
+      $(".sup" + lastClass).show();
+      return lastClass;
+    }
+
+    $('.button.answer').click(function () {
+      if ($('#SupScroll1').val() == sup1Answer) {
+        $('.labelSub1').append(' RÄTT');
+      } else {
+        $('.labelSub1').append(' FEL');
+      }
+
+      if ($('#SupScroll2').val() == sup2Answer) {
+        $('.labelSub2').append(' RÄTT');
+      } else {
+        $('.labelSub2').append(' FEL');
+      }
+
+      if ($('#SupScroll3').val() == sup3Answer) {
+        $('.labelSub3').append(' RÄTT');
+      } else {
+        $('.labelSub3').append(' FEL');
+      }
+
+      if ($('#SupScroll4').val() == sup4Answer) {
+        $('.labelSub4').append(' RÄTT');
+      } else {
+        $('.labelSub4').append(' FEL');
+      }
+      $('.sup4').hide();
+      $('.supAnswer').show();
+
+    })
+  }
+
+  function Load() {
+    $('#SupScroll1').drum({
+      panelCount: 7
+    });
+    $('#SupScroll2').drum({
+      panelCount: 7,
+      dail_w: 75,
+      dail_h: 20,
+      dail_stroke_color: '#810000',
+      dail_stroke_width: 3
+    });
+    $('#SupScroll3').drum({
+      panelCount: 7,
+      dail_w: 75,
+      dail_h: 20,
+      dail_stroke_color: '#810000',
+      dail_stroke_width: 3
+    });
+    $('#SupScroll4').drum({
+      panelCount: 7,
+      dail_w: 75,
+      dail_h: 20,
+      dail_stroke_color: '#810000',
+      dail_stroke_width: 3
+    });
+  }
+
+  return {
+    Load: Load,
+    Start: Start
+  };
+
+})();
+
+var Wool = (function () {
+  function Start() {
+    Hide.all();
+    $('.wool').show();
+    $(".draggable").draggable();
+    $(".droppable").droppable({
+      drop: function (event, ui) {
+        //HERE comes UGLY
+        var droppedClass = event.target.className.split(" ")[1];
+        var dragged = ui.draggable.text().trim();
+        if ((droppedClass == "1" && dragged == "Mohair") || (droppedClass == "2" && dragged == "Vikunjaull") || (droppedClass == "3" && dragged == "Merinoull")) {
+          _right($(this));
+        } else {
+          _wrong($(this));
+        }
+      }
+    });
+
+  }
+
+  function _right(element) {
+    element
+      .addClass("ui-state-highlight")
+      .find("p")
+      .html("RÄTT!");
+  }
+
+  function _wrong(element) {
+    element
+      .addClass("ui-state-highlight")
+      .find("p")
+      .html("FEL!");
+  }
+
+  return {
+    Start: Start
+  };
+
+})();
+
+var Hide = (function () {
+  function all() {
+    $('.nodbroms').hide();
+    $('.default').hide();
+    $('.topText').hide();
+    $('.select2').hide();
+    $('.scroll1').hide();
+    $('.scroll2').hide();
+    $('.supplementary').hide();
+    $('.wool').hide();
+  }
+
+  return {
+    all: all
+  };
+
+})();
+
+var Default = (function () {
+  function Init() {
+    Scroll1.Load();
+    Scroll2.Load();
+    Supplementary.Load();
+    Hide.all();
+    $('.default').show();
+  }
+
+  return {
+    Start: Init
+  };
+
+})();
+
+var AutoDrop = (function () {
+  function Start() {
+    $('.js-example-basic-single').select2();
+    Hide.all();
+    $('.nodbroms').show();
+    _clickEvent();
+    HandBreak.clickEvent('.select2');
+  }
+
+  function _clickEvent() {
+    $('.chooser.select2').click(function () {
+      if ($('.js-example-basic-single').val() == correctAnswerScroll) {
+        $('.awnswer').text('RÄTT SVAR!')
+      } else {
+        $('.awnswer').text('FEL SVAR!')
+      }
+    });
+  }
+
+  return {
+    Start: Start
+  };
+
+})();
+
+var Scroll1 = (function () {
+  function Start() {
+    Hammer.plugins.fakeMultitouch();
+    Load();
+    Hide.all();
+    $('.nodbroms').show();
+    HandBreak.clickEvent('.scroll1');
+    _setupButtonEvent();
+  }
+
+  function Load() {
+    $('#scroll1').drum({
+      panelCount: 10,
+      dail_w: 75,
+      dail_h: 20,
+      dail_stroke_color: '#810000',
+      dail_stroke_width: 3
+    });
+  }
+
+  function _setupButtonEvent() {
+    $('.chooser.scroll').click(function () {
+      if ($('#scroll1').val() == correctAnswerScroll) {
+        $('.awnswer').text('RÄTT SVAR!')
+      } else {
+        $('.awnswer').text('FEL SVAR!')
+      }
+    });
+  }
+
+  return {
+    Start: Start,
+    Load: Load
+  };
+
+})();
+
+var Scroll2 = (function () {
+  var names = [];
+
+  function Start() {
+    Hammer.plugins.fakeMultitouch();
+    Load();
+    Hide.all();
+    $('.nodbroms').show();
+    HandBreak.clickEvent('.scroll2');
+    _getNamesInScroll();
+    _inputer();
+    _setupButtonEvent();
+  }
+
+  function Load() {
+    $('#scroll2').drum({
+      panelCount: 10,
+      dail_w: 75,
+      dail_h: 20,
+      dail_stroke_color: '#810000',
+      dail_stroke_width: 3
+    });
+  }
+
+  function _setupButtonEvent() {
+    $('.chooser.input').click(function () {
+      if ($('#scroll2').val() == correctAnswerScroll) {
+        $('.awnswer').text('RÄTT SVAR!')
+      } else {
+        $('.awnswer').text('FEL SVAR!')
+      }
+    });
+  }
+
+  function _inputer() {
+    $('.inputer').keyup(function () {
+      var typedWord;
+      typedWord = $(this).val();
+
+      for (var i = 0; i < names.length; i++) {
+        if (names[i].substring(0, typedWord.length).toLowerCase().indexOf(typedWord) >= 0) {
+          $('#scroll2').drum('setIndex', i);
+        }
+      }
+    });
+  }
+
+  function _getNamesInScroll() {
+    $('#scroll2 option').each(function () {
+      var value = $(this).text();
+      names.push(value);
+    });
+  }
+
+  return {
+    Start: Start,
+    Load: Load
+  };
+
+})();
+
+var HandBreak = (function () {
+
+  var clickEvent = function (module) {
+    $('.nodbroms').click(function () {
+      $('.nodbroms').hide();
+      $('.topText').show();
+      $(module).show();
+    });
+  };
+
+  return {
+    clickEvent: clickEvent
+  };
+
+})();
