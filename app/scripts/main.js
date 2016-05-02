@@ -325,7 +325,7 @@ var Scroll2 = (function () {
   function _inputer() {
     $('.inputer').keyup(function () {
       var typedWord;
-      typedWord = $(this).val();
+      typedWord = $(this).val().toLowerCase();
 
       for (var i = 0; i < names.length; i++) {
         if (names[i].substring(0, typedWord.length).toLowerCase().indexOf(typedWord) >= 0) {
