@@ -3,10 +3,16 @@
 // @TODO HEJDE: FIX SUP DRUM DEFAULT VALUE
 
 var correctAnswerScroll = 'TOR';
+
 var sup1Answer = 'PUDA';
 var sup2Answer = 'PUAL';
 var sup3Answer = 'PICI';
 var sup4Answer = 'PIVE';
+
+var music1Aswer = "1";
+var music2Answer = "2";
+var music3Answer = "3";
+
 var useDebug = true;
 
 $(document).ready(function () {
@@ -27,6 +33,9 @@ $(document).ready(function () {
         break;
       case '#wool':
         Wool.Start();
+        break;
+      case '#music':
+        MusicFreeText.Start();
         break;
       default:
         Default.Start();
@@ -49,6 +58,9 @@ $(document).ready(function () {
       break;
     case '#wool':
       Wool.Start();
+      break;
+    case '#music':
+      MusicFreeText.Start();
       break;
     default:
       Default.Start();
@@ -87,7 +99,7 @@ var Supplementary = function () {
       return lastClass;
     }
 
-    $('.button.answer').click(function () {
+    $('.button.sup.answer').click(function () {
       if ($('#SupScroll1').val() == sup1Answer) {
         $('.labelSub1').append(' RÄTT');
       } else {
@@ -181,6 +193,7 @@ var Wool = function () {
   };
 }();
 
+// Todo: use css or move to own html and use paths
 var Hide = function () {
   function all() {
     $('.nodbroms').hide();
@@ -191,6 +204,7 @@ var Hide = function () {
     $('.scroll2').hide();
     $('.supplementary').hide();
     $('.wool').hide();
+    $('.musicFreeText').hide();
   }
 
   return {
@@ -198,8 +212,61 @@ var Hide = function () {
   };
 }();
 
+var MusicFreeText = function () {
+  var identity = ".music";
+  function Start() {
+    Hide.all();
+    $('.musicFreeText').show();
+    $('.music2').hide();
+    $('.music3').hide();
+    _clickEvent();
+  }
+
+  function _clickEvent() {
+    $('.musicFreeText .button.prev').click(function () {
+      var nextScreen = _showNext($(this));
+      $(identity + (parseInt(nextScreen, 10) + 1)).hide();
+    });
+    $('.button.next').click(function () {
+      var nextScreen = _showNext($(this));
+      $(identity + (parseInt(nextScreen, 10) - 1)).hide();
+    });
+    function _showNext(element) {
+      var classes = element.attr("class").split(' ');
+      var lastClass = classes[classes.length - 1];
+      $(identity + lastClass).show();
+      return lastClass;
+    }
+
+    $('.musicFreeText .button.answer').click(function () {
+      if ($('.music1Input').val() == music1Aswer) {
+        $('.labelAnswer1').append(' RÄTT');
+      } else {
+        $('.labelAnswer1').append(' FEL');
+      }
+      if ($('.music2Input').val() == music2Answer) {
+        $('.labelAnswer2').append(' RÄTT');
+      } else {
+        $('.labelAnswer2').append(' FEL');
+      }
+
+      if ($('.music3Input').val() == music3Answer) {
+        $('.labelAnswer3').append(' RÄTT');
+      } else {
+        $('.labelAnswer3').append(' FEL');
+      }
+      $('.music3').hide();
+      $('.musicAnswer').show();
+    });
+  }
+
+  return {
+    Start: Start
+  };
+}();
+
 var Default = function () {
-  function Init() {
+  function Start() {
     Scroll1.Load();
     Scroll2.Load();
     Supplementary.Load();
@@ -208,7 +275,7 @@ var Default = function () {
   }
 
   return {
-    Start: Init
+    Start: Start
   };
 }();
 

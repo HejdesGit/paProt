@@ -11,6 +11,7 @@
 
   <!-- build:css styles/vendor.css -->
   <!-- bower:css -->
+  <link rel="stylesheet" href="/bower_components/normalize-css/normalize.css" />
   <!-- endbower -->
   <!-- endbuild -->
 
@@ -38,8 +39,8 @@
   <a href="#scroll2">Scroll write</a><br>
   <a href="#autoDrop">Dropdown write</a><br>
   <a href="#sup1">Supplementaries</a><br>
-  <a href="#wool">Ull</a><br>
-
+  <a href="#wool">Wool</a><br>
+  <a href="#music">Music</a><br>
 </main>
 
 <main class="wool">
@@ -155,7 +156,7 @@
       </div>
     </div>
     <button class="button prev 3">Föregående</button>
-    <button class="button answer">Svara</button>
+    <button class="button sup answer">Svara</button>
   </div>
   <div class="supAnswer">
     <label class="labelSub1">Moped 1</label><br>
@@ -163,6 +164,57 @@
     <label class="labelSub3">Moped 3</label><br>
     <label class="labelSub4">Moped 4</label><br>
   </div>
+</main>
+<main class="musicFreeText">
+  <div class="music1">
+    <h1>Följdfrågor på Malmö</h1>
+    <h2>Vilken artist har skrivit den svenska texten?</h2>
+    <img class="music" src="images/artist.png"/><br>
+    <h3 class="question">Fråga 1 av 3</h3>
+    <input type="text" class="music1Input"/>
+    <br>
+    <br>
+    <button class="button next 2">Nästa</button>
+  </div>
+  <div class="music2">
+    <h1>Följdfrågor på Malmö</h1>
+    <h2>Vilken artist har skrivit orginaltexten?</h2>
+    <img class="music" src="images/artist.png"/><br>
+    <h3 class="question">Fråga 2 av 3</h3>
+    <input type="text" class="music2Input"/>
+    <br>
+    <br>
+    <button class="button prev 1">Föregående</button>
+    <button class="button next 3">Nästa</button>
+  </div>
+  <div class="music3">
+    <h1>Följdfrågor på Malmö</h1>
+    <h2>Vem har skrivit låten "soldier blue"?</h2>
+    <img class="music" src="images/artist.png"/><br>
+    <h3 class="question">Fråga 3 av 3</h3>
+    <input type="text" class="music3Input"/>
+    <br>
+    <br>
+    <button class="button prev 2">Föregående</button>
+    <button class="button music answer">Svara</button>
+  </div>
+  <div class="musicAnswer">
+    <labe>Vilken artist har skrivit den svenska texten?</labe>
+    <br>
+    <label class="labelAnswer1"></label>
+    <br>
+    <br>
+    <labe>Vem har skrivit låten "soldier blue"?</labe>
+    <br>
+    <label class="labelAnswer2"></label>
+    <br>
+    <br>
+    <labe>Vilken artist har skrivit orginaltexten?</labe>
+    <br>
+    <label class="labelAnswer3"></label>
+    <br>
+  </div>
+
 </main>
 <div class="topText">
   <h1>Vart är vi på väg?</h1>
@@ -189,6 +241,7 @@
       <button class="chooser scroll" type="button">Välj markerad stad</button>
     </div>
   </div>
+  <label class="awnswer"></label>
 </main>
 
 <main class="scroll2">
@@ -212,6 +265,7 @@
       </select>
     </div>
   </div>
+  <label class="awnswer"></label>
 </main>
 
 
@@ -230,8 +284,8 @@
     <option value="TET">Tétouan</option>
   </select>
   <button class="chooser select2">Välj</button>
+  <label class="awnswer"></label>
 </main>
-<label class="awnswer"></label>
 
 <!-- build:js scripts/vendor.js -->
 <!-- bower:js -->
@@ -240,8 +294,7 @@
 <script src="/bower_components/hammerjs/hammer.js"></script>
 <script src="/bower_components/jquery-ui/jquery-ui.js"></script>
 <script src="/bower_components/jquery-ui-touch-punch/jquery.ui.touch-punch.min.js"></script>
-<!-- Other own deps -->
-<script src="/bower_components/drumjs/lib/drum.min.js"></script>
+<script src="/bower_components/normalize-strings/normalize.js"></script>
 <!-- endbower -->
 <!-- endbuild -->
 
@@ -259,6 +312,9 @@
 <script src="/bower_components/bootstrap-sass/assets/javascripts/bootstrap/collapse.js"></script>
 <script src="/bower_components/bootstrap-sass/assets/javascripts/bootstrap/tab.js"></script>
 <!-- endbuild -->
+
+<!-- Other own deps -->
+<script src="/bower_components/drumjs/lib/drum.min.js"></script>
 
 <!-- build:js scripts/main.js -->
 <script src="scripts/main.js"></script>
