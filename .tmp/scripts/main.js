@@ -16,6 +16,8 @@ var music3Answer = "3";
 var useDebug = true;
 
 $(document).ready(function () {
+  $('.select2').show();
+
   $(window).bind('hashchange', function () {
     var hash = window.location.hash;
     switch (hash) {
@@ -26,7 +28,7 @@ $(document).ready(function () {
         Scroll2.Start();
         break;
       case '#autoDrop':
-        AutoDrop.Start();
+        Select2.Start();
         break;
       case '#sup1':
         Supplementary.Start();
@@ -51,7 +53,7 @@ $(document).ready(function () {
       Scroll2.Start();
       break;
     case '#autoDrop':
-      AutoDrop.Start();
+      Select2.Start();
       break;
     case '#sup1':
       Supplementary.Start();
@@ -75,7 +77,6 @@ var Supplementary = function () {
   function Start() {
     Hammer.plugins.fakeMultitouch();
     Load();
-    Hide.all();
     $('.supplementary').show();
     $('.sup2').hide();
     $('.sup3').hide();
@@ -129,6 +130,7 @@ var Supplementary = function () {
   }
 
   function Load() {
+    $('.supplementary').show(); // Need to be shown when loaded, hide after load.
     $('#SupScroll1').drum({
       panelCount: 7
     });
@@ -153,6 +155,7 @@ var Supplementary = function () {
       dail_stroke_color: '#810000',
       dail_stroke_width: 3
     });
+    $('.supplementary').hide();
   }
 
   return {
@@ -163,7 +166,6 @@ var Supplementary = function () {
 
 var Wool = function () {
   function Start() {
-    Hide.all();
     $('.wool').show();
     $(".draggable").draggable();
     $(".droppable").droppable({
@@ -193,29 +195,10 @@ var Wool = function () {
   };
 }();
 
-// Todo: use css or move to own html and use paths
-var Hide = function () {
-  function all() {
-    $('.nodbroms').hide();
-    $('.default').hide();
-    $('.topText').hide();
-    $('.select2').hide();
-    $('.scroll1').hide();
-    $('.scroll2').hide();
-    $('.supplementary').hide();
-    $('.wool').hide();
-    $('.musicFreeText').hide();
-  }
-
-  return {
-    all: all
-  };
-}();
-
 var MusicFreeText = function () {
   var identity = ".music";
+
   function Start() {
-    Hide.all();
     $('.musicFreeText').show();
     $('.music2').hide();
     $('.music3').hide();
@@ -269,9 +252,16 @@ var Default = function () {
   function Start() {
     Scroll1.Load();
     Scroll2.Load();
+    Select2.Load();
     Supplementary.Load();
-    Hide.all();
     $('.default').show();
+    _clickEvent();
+
+    function _clickEvent() {
+      $('.default a').click(function () {
+        $('.default').hide();
+      });
+    }
   }
 
   return {
@@ -279,13 +269,18 @@ var Default = function () {
   };
 }();
 
-var AutoDrop = function () {
+var Select2 = function () {
   function Start() {
-    $('.js-example-basic-single').select2();
-    Hide.all();
+    Load();
     $('.nodbroms').show();
     _clickEvent();
     HandBreak.clickEvent('.select2');
+  }
+
+  function Load() {
+    $('.select2').css('visibility', 'visible');
+    $('.js-example-basic-single').select2();
+    $('.select2').css('visibility', 'hidden');
   }
 
   function _clickEvent() {
@@ -299,7 +294,8 @@ var AutoDrop = function () {
   }
 
   return {
-    Start: Start
+    Start: Start,
+    Load: Load
   };
 }();
 
@@ -307,13 +303,13 @@ var Scroll1 = function () {
   function Start() {
     Hammer.plugins.fakeMultitouch();
     Load();
-    Hide.all();
     $('.nodbroms').show();
     HandBreak.clickEvent('.scroll1');
-    _setupButtonEvent();
+    _clickEvent();
   }
 
   function Load() {
+    $('.scroll1').show(); // Need to be shown when loaded, hide after load.
     $('#scroll1').drum({
       panelCount: 10,
       dail_w: 75,
@@ -321,9 +317,10 @@ var Scroll1 = function () {
       dail_stroke_color: '#810000',
       dail_stroke_width: 3
     });
+    $('.scroll1').hide();
   }
 
-  function _setupButtonEvent() {
+  function _clickEvent() {
     $('.chooser.scroll').click(function () {
       if ($('#scroll1').val() == correctAnswerScroll) {
         $('.awnswer').text('RÄTT SVAR!');
@@ -345,7 +342,6 @@ var Scroll2 = function () {
   function Start() {
     Hammer.plugins.fakeMultitouch();
     Load();
-    Hide.all();
     $('.nodbroms').show();
     HandBreak.clickEvent('.scroll2');
     _getNamesInScroll();
@@ -354,6 +350,7 @@ var Scroll2 = function () {
   }
 
   function Load() {
+    $('.scroll2').show(); // Need to be shown when loaded, hide after load.
     $('#scroll2').drum({
       panelCount: 10,
       dail_w: 75,
@@ -361,6 +358,7 @@ var Scroll2 = function () {
       dail_stroke_color: '#810000',
       dail_stroke_width: 3
     });
+    $('.scroll2').hide();
   }
 
   function _setupButtonEvent() {
@@ -406,6 +404,7 @@ var HandBreak = function () {
       $('.nodbroms').hide();
       $('.topText').show();
       $(module).show();
+      $(module).css('visibility', 'visible');
     });
   };
 
