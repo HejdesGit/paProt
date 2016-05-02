@@ -159,6 +159,12 @@ gulp.task('wiredep', () => {
     .pipe(gulp.dest('app'));
 });
 
+//Deploy with gh pages
+gulp.task('deploy', function() {
+  return gulp.src('./dist/**/*')
+    .pipe($.ghPages());
+});
+
 gulp.task('build', ['html', 'images', 'fonts', 'extras'], () => {
   return gulp.src('dist/**/*').pipe($.size({title: 'build', gzip: true}));
 });
